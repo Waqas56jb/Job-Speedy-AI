@@ -24,7 +24,7 @@ export function getDbPool() {
 
   if (!password || password.length === 0) {
     // eslint-disable-next-line no-console
-    console.warn('[pg] PGPASSWORD is empty or missing. Set it in server/.env');
+    console.warn('[pg] PGPASSWORD is empty or missing. Set it in the project root .env');
   }
 
   const encodedUser = encodeURIComponent(user);

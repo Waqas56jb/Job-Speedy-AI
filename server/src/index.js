@@ -6,6 +6,7 @@ import authRoutes from './authRoutes.js';
 import aiRoutes from './aiRoutes.js';
 import jobsRoutes from './jobsRoutes.js';
 import applicationsRoutes from './applicationsRoutes.js';
+import { ensureDatabaseSchema } from './initDb.js';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -31,9 +32,18 @@ app.get('/api/db-health', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+async function start() {
+  await ensureDatabaseSchema();
+  app.listen(port, () => {
+    // eslint-disable-next-line no-console
+    console.log(`Server listening on port ${port}`);
+  });
+}
+
+start().catch((err) => {
   // eslint-disable-next-line no-console
-  console.log(`Server listening on port ${port}`);
+  console.error('[server] failed to start', err);
+  process.exit(1);
 });
 
 

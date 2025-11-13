@@ -1,9 +1,7 @@
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
-import { getDbPool } from './pg.js';
-
+import { pool } from '../sql/db.js';
 const router = Router();
-const pool = getDbPool();
 
 // POST /api/auth/register - registers a normal user
 router.post('/register', async (req, res) => {

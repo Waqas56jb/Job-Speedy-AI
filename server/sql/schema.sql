@@ -56,11 +56,11 @@ create table if not exists jobs (
 -- Seed sample jobs if table is empty
 insert into jobs (title, company, description, required_skills, location, job_type, category, language)
 select * from (values
-  ('Frontend Developer','TechNova','Build UI with React','{"React","HTML","CSS"}','Berlin','Full Time','Engineering','English'),
-  ('Backend Developer','DataWorks','APIs with Node and Postgres','{"Node.js","PostgreSQL","Express"}','Munich','Full Time','Engineering','English'),
-  ('Full Stack Developer','StackLab','End-to-end features','{"React","Node.js","SQL"}','Remote','Remote','Engineering','English'),
-  ('AI Engineer','SmartHire','ML/NLP systems','{"Python","ML","NLP"}','Hamburg','Full Time','AI','English'),
-  ('DevOps Engineer','CloudOps','Infra & CI/CD','{"Docker","AWS","CI/CD"}','Remote','Remote','Engineering','English')
+  ('Frontend Developer','TechNova','Build UI with React',ARRAY['React','HTML','CSS'],'Berlin','Full Time','Engineering','English'),
+  ('Backend Developer','DataWorks','APIs with Node and Postgres',ARRAY['Node.js','PostgreSQL','Express'],'Munich','Full Time','Engineering','English'),
+  ('Full Stack Developer','StackLab','End-to-end features',ARRAY['React','Node.js','SQL'],'Remote','Remote','Engineering','English'),
+  ('AI Engineer','SmartHire','ML/NLP systems',ARRAY['Python','ML','NLP'],'Hamburg','Full Time','AI','English'),
+  ('DevOps Engineer','CloudOps','Infra & CI/CD',ARRAY['Docker','AWS','CI/CD'],'Remote','Remote','Engineering','English')
 ) as t(title,company,description,required_skills,location,job_type,category,language)
 where not exists (select 1 from jobs);
 

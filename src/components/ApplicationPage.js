@@ -31,7 +31,7 @@ const ApplicationPage = () => {
     if (!jobId) return;
     (async () => {
       try {
-        const res = await fetch(`http://localhost:4000/api/jobs/${jobId}`);
+        const res = await fetch(`https://client-backend-sand.vercel.app/api/jobs/${jobId}`);
         if (res.ok) {
           const data = await res.json();
           setJob(data.job);
@@ -45,7 +45,7 @@ const ApplicationPage = () => {
     if (jobId) return;
     (async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/jobs');
+        const res = await fetch('https://client-backend-sand.vercel.app/api/jobs');
         const data = await res.json();
         setAllJobs(data.jobs || []);
       } catch (_) {}
@@ -76,7 +76,7 @@ const ApplicationPage = () => {
       form.append('name', name);
       form.append('email', email);
       form.append('phone', phone);
-      const res = await fetch('http://localhost:4000/api/parse-resume', { method: 'POST', body: form });
+      const res = await fetch('https://client-backend-sand.vercel.app/api/parse-resume', { method: 'POST', body: form });
       if (!res.ok) throw new Error('Failed to parse resume');
       const data = await res.json();
       setParsed({ skills: data.skills || [], experience: data.experience || [], education: data.education || '', classification: data.classification || '' });
@@ -95,7 +95,7 @@ const ApplicationPage = () => {
   const fetchSuggestions = async (id) => {
     setSuggesting(true);
     try {
-      const res = await fetch(`http://localhost:4000/api/suggest-jobs/${id}`);
+      const res = await fetch(`https://client-backend-sand.vercel.app/api/suggest-jobs/${id}`);
       if (!res.ok) throw new Error('Failed to fetch job suggestions');
       const data = await res.json();
       setSuggestedJobs(data.jobs || []);
@@ -127,7 +127,7 @@ const ApplicationPage = () => {
       } catch (_) {}
       if (parsed) form.append('ai_parsed_data', JSON.stringify(parsed));
       form.append('resume', file);
-      const res = await fetch('http://localhost:4000/api/applications', { method: 'POST', body: form });
+      const res = await fetch('https://client-backend-sand.vercel.app/api/applications', { method: 'POST', body: form });
       if (!res.ok) throw new Error('Failed to submit application');
       setSubmitted(true);
     } catch (e) {

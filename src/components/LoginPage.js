@@ -43,7 +43,7 @@ const LoginPage = () => {
     }
     setFpLoading(true);
     try {
-      const res = await fetch("https://client-backend-sand.vercel.app/api/auth/forgot-password", {
+      const res = await fetch("https://client-backend-sand.vercel.app/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: fpEmail, newPassword: fpNewPassword })

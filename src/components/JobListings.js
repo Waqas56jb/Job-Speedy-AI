@@ -19,7 +19,7 @@ const JobListingsPage = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('https://client-backend-sand.vercel.app/api/jobs/filters');
+        const res = await fetch('https://client-backend-sand.vercel.app/jobs/filters');
         const data = await res.json();
         setFilters({ types: data.types || [], categories: data.categories || [], languages: data.languages || [], locations: data.locations || [] });
       } catch (_) {}
@@ -37,7 +37,7 @@ const JobListingsPage = () => {
         if (type) params.set('type', type);
         if (category) params.set('category', category);
         // language filter removed
-        const res = await fetch(`https://client-backend-sand.vercel.app/api/jobs?${params.toString()}`);
+        const res = await fetch(`https://client-backend-sand.vercel.app/jobs?${params.toString()}`);
         const data = await res.json();
         setJobs(data.jobs || []);
       } catch (_) {

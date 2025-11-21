@@ -34,7 +34,7 @@ const RegisterPage = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("https://client-backend-sand.vercel.app/api/auth/register", {
+      const res = await fetch("https://client-backend-sand.vercel.app/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, email, password }),

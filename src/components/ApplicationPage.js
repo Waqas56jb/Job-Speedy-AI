@@ -45,7 +45,7 @@ const ApplicationPage = () => {
     if (jobId) return;
     (async () => {
       try {
-        const res = await fetch('https://client-backend-sand.vercel.app/api/jobs');
+        const res = await fetch('https://client-backend-sand.vercel.app/jobs');
         const data = await res.json();
         setAllJobs(data.jobs || []);
       } catch (_) {}

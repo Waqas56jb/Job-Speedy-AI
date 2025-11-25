@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import logoImg from "../assets/Jobspeedy_gemini.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -29,25 +30,16 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center px-10 py-5 bg-white/90 backdrop-blur-md shadow-md fixed w-full top-0 z-50">
-      <div
-        style={{
-          fontFamily: "'Poppins', sans-serif",
-          fontSize: "32px",
-          fontWeight: 500,
-          background: "linear-gradient(135deg, #00B2FF 0%, #0083FF 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          color: "transparent",
-          display: "inline-block",
-          letterSpacing: "-0.5px",
-          lineHeight: "1.2",
-          cursor: "pointer",
-        }}
+      <img
+        src={logoImg}
+        alt="JOBspeedy AI"
         onClick={() => navigate("/")}
-      >
-        JOBspeedy AI
-      </div>
+        style={{
+          height: "40px",
+          cursor: "pointer",
+          objectFit: "contain",
+        }}
+      />
 
       <ul className="hidden md:flex space-x-8 text-lg font-medium">
         {navItems.map((item, idx) => {

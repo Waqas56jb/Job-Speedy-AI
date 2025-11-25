@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import backgroundImg from "../assets/background.png";
 import waveImg from "../assets/wave.png";
+import logoImg from "../assets/Jobspeedy_gemini.png";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -133,7 +134,11 @@ const LoginPage = () => {
 
       {/* Left Side */}
       <div style={styles.leftSection}>
-        <h1 style={styles.logoBrand}>JOBspeedy AI</h1>
+        <img
+          src={logoImg}
+          alt="JOBspeedy AI"
+          style={styles.logoImage}
+        />
         <p style={styles.quote}>
           AI DOES'NT JUST FIND JOBS IT FINDS THE RIGHT ONES FOR YOU.
         </p>
@@ -270,18 +275,10 @@ const styles = {
     textAlign: "center",
     padding: "40px",
   },
-  logoBrand: {
-    fontFamily: "'Poppins', sans-serif",
-    fontSize: "32px",
-    fontWeight: 500,
-    background: "linear-gradient(135deg, #00B2FF 0%, #0083FF 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-    color: "transparent",
-    display: "inline-block",
-    letterSpacing: "-0.5px",
-    lineHeight: "1.2",
+  logoImage: {
+    height: "60px",
+    width: "auto",
+    objectFit: "contain",
     marginBottom: "20px",
   },
   quote: {

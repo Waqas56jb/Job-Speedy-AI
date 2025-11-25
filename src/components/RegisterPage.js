@@ -229,7 +229,7 @@ const styles = {
     padding: "40px",
   },
   logoImage: {
-    height: "120px",
+    height: "150px",
     width: "auto",
     objectFit: "contain",
     marginBottom: "20px",

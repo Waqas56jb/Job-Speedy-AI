@@ -35,7 +35,7 @@ const Navbar = () => {
         alt="JOBspeedy AI"
         onClick={() => navigate("/")}
         style={{
-          height: "60px",
+          height: "80px",
           cursor: "pointer",
           objectFit: "contain",
         }}

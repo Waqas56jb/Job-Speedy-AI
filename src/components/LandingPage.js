@@ -18,6 +18,21 @@ const LandingPage = () => {
     return () => window.removeEventListener('storage', onStorage);
   }, []);
 
+  useEffect(() => {
+    if (document.getElementById('Cookiebot')) return;
+    const script = document.createElement('script');
+    script.id = 'Cookiebot';
+    script.src = 'https://consent.cookiebot.com/uc.js';
+    script.type = 'text/javascript';
+    script.dataset.cbid = '71a48449-fe36-45dd-8872-b3491c3dd9da';
+    script.dataset.blockingmode = 'auto';
+    script.async = true;
+    document.head.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
+
   const handleUploadClick = () => {
     if (isAuth) {
       navigate('/apply');
